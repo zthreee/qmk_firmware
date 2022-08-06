@@ -42,7 +42,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       break;
     case ZC_COPY:
       if (pressed) {
-        tap_code16(LGUI(KC_C));
+        tap_code16(LGUI(KC));
       }
       break;
     case XV_PASTE:

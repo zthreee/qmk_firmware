@@ -34,53 +34,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    // Sends QMK make command to compile keyboard
-    case M_MAKE:
-     if (record->event.pressed) {
-        SEND_STRING("rm -f *.hex && rm -rf .build/ && make " QMK_KEYBOARD ":" QMK_KEYMAP SS_TAP(X_ENTER));
-      }
-      break;
-
-    // Sends QMK make command to compile all keyboards
-    case M_MALL:
-     if (record->event.pressed) {
-        SEND_STRING("rm -f *.hex && rm -rf .build/ && make crkbd:ninjonas lily58:ninjonas hotdox:ninjonas pinky/3:ninjonas kyria:ninjonas\n");
-      }
-      break;
-
-    // Sends QMK make command with the correct bootloader
-    case M_FLSH:
-      if (!record->event.pressed) {
-        SEND_STRING("rm -f *.hex && rm -rf .build/ && make " QMK_KEYBOARD ":" QMK_KEYMAP
-          #if  (defined(BOOTLOADER_DFU) || defined(BOOTLOADER_LUFA_DFU) || defined(BOOTLOADER_QMK_DFU))
-            ":dfu "
-          #elif defined(BOOTLOADER_CATERINA)
-            ":avrdude "
-          #endif
-          SS_TAP(X_ENTER)
-        );
-
-        // Send reset_keyboard command instead of pressing reset button
-        #if  (defined(BOOTLOADER_DFU) || defined(BOOTLOADER_LUFA_DFU) || defined(BOOTLOADER_QMK_DFU))
-        reset_keyboard();
-        #endif
-      }
-      break;
-
-    // Sends QMK version
-    case M_VRSN:
-      if (record->event.pressed) {
-        SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION ", Built on: " QMK_BUILDDATE);
-      }
-      break;
-
-    // Opens Visual Studio Code on current directory
-    case M_CODE:
-      if (record->event.pressed) {
-        SEND_STRING("code .\n");
-      }
-      break;
-
     // Opens Terminal
     case M_TERM:
       if (record->event.pressed) {
@@ -94,11 +47,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case QWERTY:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_QWERTY);
-      }
-      break;
-    case DVORAK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_DVORAK);
       }
       break;
     case COLEMAK:

@@ -1,4 +1,4 @@
-#include "ninjonas.h"
+#include "zthreee.h"
 
 //// BEGIN: Advanced Tap Dances
 int cur_dance (qk_tap_dance_state_t *state) {
@@ -37,18 +37,18 @@ static tap copy_paste_app_tap_state = {
 void copy_paste_app_finished (qk_tap_dance_state_t *state, void *user_data) {
   copy_paste_app_tap_state.state = cur_dance(state);
   switch (copy_paste_app_tap_state.state) {
-    case SINGLE_TAP: 
+    case SINGLE_TAP:
       tap_code16(LGUI(KC_V)); // Tap Cmd + V
       break;
-    case SINGLE_HOLD: 
+    case SINGLE_HOLD:
       tap_code16(LGUI(KC_C)); // Hold Cmd + C
       break;
-    case DOUBLE_TAP: 
+    case DOUBLE_TAP:
       SEND_STRING(SS_DOWN(X_LGUI) SS_TAP(X_SPACE) SS_UP(X_LGUI));
       wait_ms(250);
       SEND_STRING("line\n");
       break;
-    case TRIPLE_TAP: 
+    case TRIPLE_TAP:
       SEND_STRING(SS_DOWN(X_LGUI) SS_TAP(X_SPACE) SS_UP(X_LGUI));
       wait_ms(250);
       SEND_STRING("itunes\n");
@@ -60,41 +60,6 @@ void copy_paste_app_reset (qk_tap_dance_state_t *state, void *user_data) {
   copy_paste_app_tap_state.state = 0;
 }
 // END: Copy, Paste, Apps
-
-// BEGIN: Y, NUMPAD
-static tap y_numpad_tap_state = {
-  .is_press_action = true,
-  .state = 0
-};
-
-void y_numpad_finished (qk_tap_dance_state_t *state, void *user_data) {
-  y_numpad_tap_state.state = cur_dance(state);
-  switch (y_numpad_tap_state.state) {
-    case SINGLE_TAP: 
-      tap_code(KC_Y); 
-      break;
-    case SINGLE_HOLD: 
-      register_code16(KC_Y);
-      break;
-    case DOUBLE_TAP: 
-      if (layer_state_is(_NUMPAD)) {
-        layer_off(_NUMPAD);
-      } else { 
-        layer_on(_NUMPAD);
-      }
-      break;
-  }
-}
-
-void y_numpad_reset (qk_tap_dance_state_t *state, void *user_data) {
-  switch (y_numpad_tap_state.state) {
-    case SINGLE_HOLD:
-      unregister_code16(KC_Y); 
-      break;
-  }
-  y_numpad_tap_state.state = 0;
-}
-// END: Y, NUMPAD
 
 //// END: Advanced Tap Dances
 
@@ -108,5 +73,4 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
   // Advanced Tap Dances
   [TD_COPY_PASTE_APP] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, copy_paste_app_finished, copy_paste_app_reset, 300),
-  [TD_Y_NUMPAD] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, y_numpad_finished, y_numpad_reset, 300),
 };

@@ -27,9 +27,6 @@ void render_layout_state(void) {
       case _COLEMAK:
         oled_write_P(PSTR("Colemak"), false);
         break;
-      case _DVORAK:
-        oled_write_P(PSTR("Dvorak"), false);
-        break;
       case _QWERTY:
         oled_write_P(PSTR("Qwerty"), false);
         break;
@@ -46,8 +43,9 @@ void render_layer_state(void) {
   oled_write_P(PSTR("\nLayer:"), false);
   bool lower = layer_state_is(_LOWER) & !layer_state_is(_ADJUST);
   bool raise = layer_state_is(_RAISE) & !layer_state_is(_ADJUST);
+  bool num = layer_state_is(_NUM) & !layer_state_is(_ADJUST);
+  bool func = layer_state_is(_FUNC) & !layer_state_is(_ADJUST);
   bool adjust = layer_state_is(_ADJUST);
-  bool numpad = layer_state_is(_NUMPAD);
 
   if(lower){
     oled_write_P(PSTR(" Lower "), true);
@@ -55,8 +53,10 @@ void render_layer_state(void) {
     oled_write_P(PSTR(" Raise "), true);
   } else if(adjust){
       oled_write_P(PSTR(" Adjust "), true);
-  } else if(numpad) {
-      oled_write_P(PSTR(" Numpad "), true);
+  } else if(num){
+      oled_write_P(PSTR(" Numbers "), true);
+  } else if(func){
+      oled_write_P(PSTR(" Functions "), true);
   } else {
     oled_write_P(PSTR(" Default"), false);
   }
@@ -93,7 +93,7 @@ static void render_logo(void) {
 bool oled_task_user(void) {
     if (timer_elapsed32(oled_timer) > 15000) {
         oled_off();
-        return;
+        return true;
     }
     #ifndef SPLIT_KEYBOARD
     else { oled_on(); }

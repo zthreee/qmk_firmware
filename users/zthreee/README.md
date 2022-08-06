@@ -1,23 +1,15 @@
-# QMK User Configuration for [ninjonas](https://github.com/ninjonas/qmk-yonas)
 Tired of copying and pasting the same macros and tap dances for all my keymaps. Utilizing user keymaps functionality.
 See: https://docs.qmk.fm/#/feature_userspace
 
-## [ninjonas.c](ninjonas.c)
-- ninjonas [QMK user configuration](https://github.com/qmk/qmk_firmware/blob/master/docs/feature_userspace.md)
-- On `keymap.c` include `ninjonas.h`
+## [zthreee.c](zthreee.c)
+- zthreee [QMK user configuration](https://github.com/qmk/qmk_firmware/blob/master/docs/feature_userspace.md)
+- On `keymap.c` include `zthreee.h`
   ```c
-  #include "ninjonas.h"
+  #include "zthreee.h"
   ```
 
-## Supported Keyboards
-- [Crkbd ](../../keyboards/crkbd/keymaps/ninjonas)
-- [Hotdox](../../keyboards/hotdox/keymaps/ninjonas)
-- [Pinky3](../../keyboards/pinky/3/keymaps/ninjonas)
-- [Lily58](../../keyboards/lily58/keymaps/ninjonas)
-- [Kyria](../../keyboards/kyria/keymaps/ninjonas)
-
 ## Features
-### [Keys](ninjonas.h)
+### [Keys](zthreee.h)
 |Code | Description |
 |---|---|
 |K_LOCK | MacOS shortcut to execute lock command Cmd + CTRL + Q |
@@ -25,19 +17,19 @@ See: https://docs.qmk.fm/#/feature_userspace
 |K_MDSH | MacOS shortcut to get em-dash `–` |
 |K_CPRF | Cmd + Shift + M. Used for switching Google Chrome profiles | 
 
-### [Layers](ninjonas.h)
+### [Layers](zthreee.h)
 |Code | Description |
 |---|---|
 |LT_LOW | Tap for ENTER, hold for RAISE |
 |LT_RAI | Tap for SPACE, hold for LOWER |
 
-### [Mod-Taps](ninjonas.h)
+### [Mod-Taps](zthreee.h)
 |Code | Description |
 |---|---|
 |MT_DEL | Tap for Delete, hold for ALT + SHIFT |
 |MT_EQL | Tap for =, SHIFT |
 
-### [Layout Blocks](ninjonas.h)
+### [Layout Blocks](zthreee.h)
 Predefined keyboard layout templates to speed up configuring split keyboards
 
 |Code | Description |
@@ -93,7 +85,7 @@ There's times where you have macros you don't want to share like emails, an addr
 
 ```c
 // secrets.c
-#include "ninjonas.h"
+#include "zthreee.h"
 
 static const char * const secret[] = {
   "BLANK1",

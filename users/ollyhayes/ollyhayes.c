@@ -86,7 +86,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_off(NUM);
 
                 if (!key_pressed_since_switch && timer_elapsed(switch_down_time) < 200) {
-                    tap_code(KC_TAB);
+                    tap_code(KC_ENT);
+                }
+            }
+            return false;
+
+        case NAV_SWITCH:
+            if (record->event.pressed) {
+                layer_on(ARR);
+                key_pressed_since_switch = false;
+                switch_down_time = timer_read();
+            } else {
+                layer_off(ARR);
+
+                if (!key_pressed_since_switch && timer_elapsed(switch_down_time) < 200) {
+                    tap_code(KC_SPC);
                 }
             }
             return false;

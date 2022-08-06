@@ -24,7 +24,6 @@ enum layers {
     FUNCTIONS,
     ARR,
     PUNC,
-    DUBPUNC,
     MEDIA,
 };
 
@@ -32,6 +31,7 @@ enum custom_keycodes {
   DOWN4 = SAFE_RANGE,
   UP4,
   NUM_SWITCH,
+  NAV_SWITCH,
   ALTTAB,
   A_UMLAUT,
   O_UMLAUT,

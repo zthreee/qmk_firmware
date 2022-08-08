@@ -31,8 +31,7 @@ uint16_t encoder_rotated_timer;
 #define _LOWER 2
 #define _RAISE 3
 #define _ADJUST 4
-#define _NUM 5
-#define _FUNC 6
+#define _FUNC 5
 
 // Shortcut Keys
 #define K_LOCK LGUI(LCTL(KC_Q)) // Locks screen on MacOS
@@ -43,7 +42,6 @@ uint16_t encoder_rotated_timer;
 // Layer Keys
 #define LT_LOW LT(_LOWER, KC_BSPC)
 #define LT_RAI LT(_RAISE, KC_SPC)
-#define LT_NUM LT(_NUM, KC_ENT)
 #define LT_FUNC LT(_FUNC, KC_ENT)
 
 // Mod-Tap Keys
@@ -63,7 +61,7 @@ uint16_t encoder_rotated_timer;
 #define _____________________COLEMAK_L3_____________________ KC_LCTL, KC_Z, KC_X, KC_C, KC_D, KC_V
 
 #define _____________________COLEMAK_R1_____________________ KC_J, KC_L, KC_U, KC_Y, KC_SCLN, KC_BSLS
-#define _____________________COLEMAK_R2_____________________ KC_M, KC_N, KC_E, KC_I, KC_O, KC_QUOT
+#define _____________________COLEMAK_R2_____________________ KC_M, KC_N, KC_E, KC_I, KC_O, LSFT(KC_QUOT)
 #define _____________________COLEMAK_R3_____________________ KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, MT_EQL
 
 #define _____________________SYM_LEFT_______________________ KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC

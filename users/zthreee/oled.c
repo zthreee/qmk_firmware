@@ -43,7 +43,6 @@ void render_layer_state(void) {
   oled_write_P(PSTR("\nLayer:"), false);
   bool lower = layer_state_is(_LOWER) & !layer_state_is(_ADJUST);
   bool raise = layer_state_is(_RAISE) & !layer_state_is(_ADJUST);
-  bool num = layer_state_is(_NUM) & !layer_state_is(_ADJUST);
   bool func = layer_state_is(_FUNC) & !layer_state_is(_ADJUST);
   bool adjust = layer_state_is(_ADJUST);
 
@@ -53,8 +52,6 @@ void render_layer_state(void) {
     oled_write_P(PSTR(" Raise "), true);
   } else if(adjust){
       oled_write_P(PSTR(" Adjust "), true);
-  } else if(num){
-      oled_write_P(PSTR(" Numbers "), true);
   } else if(func){
       oled_write_P(PSTR(" Functions "), true);
   } else {

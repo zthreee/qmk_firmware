@@ -52,7 +52,7 @@ uint16_t encoder_rotated_timer;
 // Layout blocks
 #define _____________________QWERTY_L1______________________ KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T
 #define _____________________QWERTY_L2______________________ T_GUI, KC_A, KC_S, KC_D, KC_F, KC_G
-#define _____________________QWERTY_L3______________________ KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B
+#define _____________________QWERTY_L3______________________ KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B
 
 #define _____________________QWERTY_R1______________________ KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLS
 #define _____________________QWERTY_R2______________________ KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT
@@ -60,27 +60,26 @@ uint16_t encoder_rotated_timer;
 
 #define _____________________COLEMAK_L1_____________________ KC_TAB, KC_Q, KC_W, KC_F, KC_P, KC_B
 #define _____________________COLEMAK_L2_____________________ T_GUI, KC_A, KC_R, KC_S, KC_T, KC_G
-#define _____________________COLEMAK_L3_____________________ KC_LSFT, KC_Z, KC_X, KC_C, KC_D, KC_V
+#define _____________________COLEMAK_L3_____________________ KC_LCTL, KC_Z, KC_X, KC_C, KC_D, KC_V
 
 #define _____________________COLEMAK_R1_____________________ KC_J, KC_L, KC_U, KC_Y, KC_SCLN, KC_BSLS
 #define _____________________COLEMAK_R2_____________________ KC_M, KC_N, KC_E, KC_I, KC_O, KC_QUOT
 #define _____________________COLEMAK_R3_____________________ KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, MT_EQL
 
-#define _____________________NUM_LEFT_______________________ T_GRV, KC_1, KC_2, KC_3, KC_4, KC_5
-#define _____________________NUM_RIGHT______________________ KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS
+#define _____________________SYM_LEFT_______________________ KC_GRV, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC
+#define _____________________NUM_LEFT_______________________ KC_TILD, KC_1, KC_2, KC_3, KC_4, KC_5
+#define _____________________SYM_LEFT_2_____________________ K_CSCN, KC_LT, KC_LBRC, KC_LCBR, KC_LPRN, KC_PMNS
+
+#define _____________________SYM_RIGHT______________________ KC_CIRC, KC_AMPR, KC_ASTR, KC_UNDS, KC_COLON, KC_PIPE
+#define _____________________NUM_RIGHT______________________ KC_6, KC_7, KC_8, KC_9, KC_0, KC_QUOT
+#define _____________________SYM_RIGHT_2____________________ KC_PPLS, KC_RPRN, KC_RCBR, KC_RBRC, KC_GT, XXXXXXX
 
 #define _____________________FUNC_LEFT______________________ KC_F11, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5
 #define _____________________FUNC_RIGHT_____________________ KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F12
 
-#define _____________________SYM_LEFT_______________________ KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC
-#define _____________________SYM_LEFT_2_____________________ XXXXXXX, KC_LT, KC_LBRC, KC_LCBR, KC_LPRN, KC_PMNS
-
-#define _____________________SYM_RIGHT______________________ KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS
-#define _____________________SYM_RIGHT_2____________________ KC_PPLS, KC_RPRN, KC_RCBR, KC_RBRC, KC_GT, KC_UNDS
-
-#define _____________________LOWER_L1_______________________ KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, K_CSCN
-#define _____________________LOWER_L2_______________________ T_GUI, KC_LALT, KC_LCTL, KC_LSFT,  XXXXXXX, XXXXXXX
-#define _____________________LOWER_L3_______________________ KC_LSFT, U_UND, U_CUT, U_CPY, U_PST, U_RDO
+#define _____________________LOWER_L1_______________________ K_CSCN, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define _____________________LOWER_L2_______________________ KC_TRNS, KC_LALT, KC_LCTL, KC_LSFT,  XXXXXXX, XXXXXXX
+#define _____________________LOWER_L3_______________________ KC_TRNS, U_UND, U_CUT, U_CPY, U_PST, U_RDO
 
 #define _____________________LOWER_R1_______________________ U_RDO, U_PST, U_CPY, U_CUT, U_UND, XXXXXXX
 #define _____________________LOWER_R2_______________________ LGUI(KC_LEFT), _______________NAV_1______________, LGUI(KC_RIGHT)
@@ -107,8 +106,8 @@ uint16_t encoder_rotated_timer;
 #define _________MEDIA_2_________ KC_BRID, KC_MFFD, KC__VOLUP
 #define _________MEDIA_3_________ XXXXXXX, KC_MRWD, KC__VOLDOWN
 
-#define ________MOD_LEFT_________ LCTL_T(KC_ESC), LT_RAI, KC_TAB
-#define ________MOD_RIGHT________ LT_FUNC, LT_LOW, RALT_T(KC_DEL)
+#define ________MOD_LEFT_________ LALT_T(KC_ESC), LT_RAI, SFT_T(KC_TAB)
+#define ________MOD_RIGHT________ LT_FUNC, LT_LOW, SFT_T(KC_DEL)
 
 #define U_RDO SCMD(KC_Z)
 #define U_PST LCMD(KC_V)

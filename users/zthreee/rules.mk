@@ -7,7 +7,7 @@ COMBO_ENABLE = no          # Enable Combos
 SRC += zthreee.c \
        process_records.c \
 	   tap_dances.c \
-       oled.c
+       oled.c	
 
 ifneq ("$(wildcard $(USER_PATH)/secrets.c)","")
     SRC += secrets.c
